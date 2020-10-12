@@ -6,7 +6,7 @@ class CommentsController < ApplicationController
     end
     
     def create
-        comment = COmment.create(comment_params)
+        comment = Comment.create(comment_params)
         if comment.valid?
             render json: comment, status: :created 
         else

@@ -12,6 +12,12 @@ class PostsController < ApplicationController
             render json: {error: 'failed to create'}, status: :not_acceptable
         end
     end
+
+    def destroy
+        post = Post.find(params[:id])
+        post.delete
+        render json: post, stauts: :accepted
+    end 
     
     private 
 
@@ -19,5 +25,5 @@ class PostsController < ApplicationController
         params.require(:post).permit!
     end
 
-    
+
 end
