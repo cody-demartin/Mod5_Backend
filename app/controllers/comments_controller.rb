@@ -14,6 +14,13 @@ class CommentsController < ApplicationController
         end
     end 
 
+    def update
+        comment = Comment.find(params[:id])
+        comment.update(comment_params)
+        render json: comment, status: :accepted
+        
+    end 
+
     private 
 
     def comment_params

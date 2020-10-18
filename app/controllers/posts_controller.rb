@@ -1,11 +1,12 @@
+require 'byebug'
 class PostsController < ApplicationController
     def index 
-        posts = Post.all 
-        render json: posts 
+        posts = Post.all
+        render json: posts.with_attached_request 
     end 
 
     def create
-        post = Post.create(post_params)
+        post = Post.create(user_id: params[:user_id], title: params[:title], body: params[:body], request: params[:request])
         if post.valid?
             render json: post, status: :created 
         else
@@ -13,16 +14,23 @@ class PostsController < ApplicationController
         end
     end
 
+    def update
+        post = Post.find(params[:id])
+        post.update(post_params)
+        render json: post, status: :accepted
+        
+    end 
+
     def destroy
         post = Post.find(params[:id])
         post.delete
-        render json: post, stauts: :accepted
+        render json: post, status: :accepted
     end 
     
     private 
 
     def post_params
-        params.require(:post).permit!
+        params.require(:post).permit(:user_id, :title, :body, :request)
     end
 
 

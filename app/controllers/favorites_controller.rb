@@ -16,6 +16,8 @@ class FavoritesController < ApplicationController
     def destroy
         favorite = Favorite.find(params[:id])
         favorite.delete
+
+        render json: favorite, status: :created
     end 
     
     private 
