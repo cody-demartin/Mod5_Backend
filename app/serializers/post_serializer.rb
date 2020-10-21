@@ -16,9 +16,12 @@ class PostSerializer < ActiveModel::Serializer
     url_for(object.request)
   end
 
+
+
   belongs_to :user
   has_many :favorites
   has_many :comments
+  belongs_to :user
   has_many :commenters
   has_many :favoriters
   has_many :votes

@@ -49,7 +49,7 @@ ActiveRecord::Schema.define(version: 2020_10_17_234817) do
     t.integer "user_id"
     t.integer "post_id"
     t.string "title"
-    t.text "body"
+    t.text "body", default: ""
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -65,7 +65,7 @@ ActiveRecord::Schema.define(version: 2020_10_17_234817) do
     t.integer "user_id"
     t.integer "score", default: 0
     t.string "title"
-    t.text "body"
+    t.text "body", default: "Lorem"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

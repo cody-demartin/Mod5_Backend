@@ -23,6 +23,12 @@ class ApplicationController < ActionController::API
         end
     end
 
+    def sort_by_age(array)
+        array.sort_by do |element| 
+            element.created_at
+        end
+    end 
+
     def current_user
         if decoded_token
             user_id = decoded_token[0]['user_id']
@@ -37,5 +43,5 @@ class ApplicationController < ActionController::API
     def authorized
         render json: { message: 'Please log in' }, status: :unauthorized unless logged_in?
     end
-    
+
 end

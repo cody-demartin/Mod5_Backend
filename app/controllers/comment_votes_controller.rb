@@ -1,8 +1,8 @@
 class CommentVotesController < ApplicationController
     
     def index
-        comment = CommentVote.all 
-        render json: comment
+        commentVotes = CommentVote.all 
+        render json: commentVotes
     end 
 
     def create

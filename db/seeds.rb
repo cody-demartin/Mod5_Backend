@@ -10,7 +10,13 @@ User.create(email: '12345@gmail.com', password: '1234', answered: 0)
 User.create(email: 'abcdefg@gmail.com', password: '1234', answered: 100)
 User.create(email: 'terrible@gmail.com', password: '1234', answered: 20)
 User.create(email: 'cdemarti@gmail.com', password: '1234', answered: 100000)
-User.create(email: 'codythomasdemartin@gmail.com', password: '1234', answered: 3)
+
+
+v = User.create(email: 'codythomasdemartin@gmail.com', password: '1234', answered: 3)
+
+v.avatar.attach(io: File.open('app/assests/issey_and_marg.jpg'), filename: 'issey_and_marg.jpg', content_type: 'image/jpg')
+v.save
+
 
 Post.create(user_id: 1, score: 0, title: 'Where do I find these pants?', body: 'Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum')
 Post.create(user_id: 1, score: 100, title: 'ID on shoes?', body: 'Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum')
@@ -37,6 +43,7 @@ Comment.create(score: 12, user_id: 4, post_id: 1,  body: "Lorem ipsumLorem ipsum
 Comment.create(score: -909, user_id: 4, post_id: 3,  body: "Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum ." )
 Comment.create(score: -1, user_id: 5, post_id: 4,  body: "Lorem ipsum Lorem ipsum." )
 Comment.create(score: 0, user_id: 5, post_id: 1,  body: "Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum. Lorem ipsum Lorem ipsum Lorem ipsum . Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum." )
+Comment.create(score: 213, user_id: 5, post_id: 33,  body: "Lorem")
 
 # t.integer :score, :default => 0
 # t.integer :user_id

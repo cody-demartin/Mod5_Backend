@@ -4,12 +4,17 @@ class UsersController < ApplicationController
         render json: users 
     end
 
+    def show
+        user = User.find(params[:id])
+        render json: user 
+    end
+
     def profile
         render json: { user: UserSerializer.new(current_user) }, status: :accepted
     end
 
     def create
-        @user = User.create(email: params[:email], password: params[:password], answered: params[:answered])
+        @user = User.create(email: params[:email], password: params[:password], answered: params[:answered], avatar: params[:avatar])
         if @user.valid?
             @token = encode_token(user_id: @user.id)
             render json: { user: UserSerializer.new(@user), jwt: @token }, status: :created
@@ -17,5 +22,5 @@ class UsersController < ApplicationController
             render json: { error: 'failed to create user' }, status: :not_acceptable
         end
     end
-
 end
+

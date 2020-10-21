@@ -4,7 +4,7 @@ class CreatePosts < ActiveRecord::Migration[6.0]
       t.integer :user_id
       t.integer :score, :default => 0
       t.string :title
-      t.text :body
+      t.text :body, :default => "Lorem"
 
       t.timestamps
     end

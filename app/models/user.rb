@@ -10,5 +10,5 @@ class User < ApplicationRecord
     has_many :voted_posts, through: :votes, source: :post 
     has_many :comment_votes
     has_many :comment_voters, through: :comment_votes, source: :user
-    has_one_attached :avatar 
+    has_one_attached :avatar
 end

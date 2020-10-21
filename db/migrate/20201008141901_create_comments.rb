@@ -5,7 +5,7 @@ class CreateComments < ActiveRecord::Migration[6.0]
       t.integer :user_id
       t.integer :post_id
       t.string :title
-      t.text :body
+      t.text :body, :default => ""
 
       t.timestamps
     end
